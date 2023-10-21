@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row product-detail-row mt-4 mb-5">
+            <div class="col-5">
+                <img src="https://pbs.twimg.com/media/FGBYPmtX0AguaV2.jpg"
+                     class="img-fluid"
+                     height="">
+            </div>
+            <div class="col-7">
+                <div class="jumbotron">
+                    <h1 class="display-4"> {{ product.name }} </h1>
+                    <div class="price-container">
+                            <h5 class="card-title">
+                                <s>5 USD</s>
+                            </h5>
+                        <h5 class="card-title">3 USD</h5>
+                    </div>
+                    <hr class="my-4">
+                    <p>
+                        {{ product.brand.description }}
+                    </p>
+
+                    <a class="btn btn-tomato" href="/">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock%}

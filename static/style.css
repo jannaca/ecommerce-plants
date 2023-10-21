@@ -1,0 +1,52 @@
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.home-col-one{
+    height: 60vh;
+    background-image: url("/media/index/monstera-deliciosa-planta-maceta.jpg");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e1e7d9;
+}
+
+
+.home-col-two{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: center;
+    padding-right: 0;
+}
+
+.border-rigth{
+    border-right: 20px solid black;
+    padding: 120px 20px 120px 0;
+}
+
+
+.fixed-image-size {
+    width: 300px; /* El tamaño que desees */
+    height: 400px; /* Mantén la proporción original */
+    margin: auto;
+  }
+
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+
+.beneficios-img {
+    width: 80px; /* El tamaño que desees */
+    height: 80px; /* Mantén la proporción original */
+    margin: auto;
+}
+
+.beneficios-box {
+    background-color: #e1e7d9;
+}

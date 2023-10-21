@@ -1,0 +1,74 @@
+{% extends "base/base.html" %}
+
+{%block content%}
+<!--PORTADA-->
+    <div class="container-fluid home">
+      <div class="row">
+        <div class="col-md-6 home-col-one d-none d-md-block">
+          <!-- IMAGEN -->
+        </div>
+        <div class="col-md-6 home-col-two">
+          <!-- Contenido de la segunda columna -->
+          <div class="border-rigth">
+            <h2>Columna 2</h2>
+            <p>
+              Integer posuere erat a ante venenatis dapibus posuere velit
+              aliquet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--ULTIMOS PRODUCTOS-->
+
+    <div class="container mt-5">
+      <section class="text-center">
+        <h3>Ultimos productos</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          {% for product in products%}
+          <div class="col-lg col-md-6">
+            <div class="card h-100">
+              <img src="{{product.image.url}}" class="card-img-top fixed-image-size" alt="image-product"/>
+              <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <h6>{{product.price}}</h6>
+                <p class="card-text">
+                  {{product.description}}
+                </p>
+                <a href={% url "get_product" id=product.id%} class="btn btn-primary">Leer mas</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+
+
+
+<!--BENEFICIOS-->
+
+<div class="container-fluid mt-5  beneficios-box">
+  <div class="row p-5 ">
+    <div class="col">
+      <img src="/media/index/garantia.png" class="beneficios-img" alt="">
+      <h4 class="pt-2">Garantía</h4>
+      <p>Garantizamos la calidad de nuestras plantas.</p>
+   </div>
+   <div class="col">
+    <img src="/media/index/envio.png" class="beneficios-img" alt="">
+     <h4 class="pt-2">Envío Gratis</h4>
+     <p>Disfruta de envío gratuito en todas tus compras. Sin costos adicionales.</p>
+   </div>
+   <div class="col">
+    <img src="/media/index/calidad.png" class="beneficios-img" alt="">
+    <h4 class="pt-2">Calidad</h4>
+    <p>Nuestras plantas son cultivadas con mimo para asegurar la mejor calidad.</p>
+  </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

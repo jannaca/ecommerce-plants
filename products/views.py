@@ -17,13 +17,16 @@ def get_product(request,id):
 
 def shop(request,category_id=None):
     categories = Category.objects.all()
+    category_description = None
+    categories_filter = None
     if category_id is not None:
         categories_filter = Category.objects.get(id=category_id)
         products_filter = Product.objects.filter(categories=categories_filter)
+        category_description = categories_filter.description
     else:
         products_filter = Product.objects.all()
     return render(
         request,
         "products/shop.html",
-        {"categories": categories,"products":products_filter}
+        {"categories": categories,"products":products_filter, "category_description": category_description,"categories_filter": categories_filter}
     )

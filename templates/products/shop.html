@@ -1,6 +1,15 @@
 {% extends 'base/base.html' %}
 {% block content %}
 
+<div class="container-fluid">
+{% if category_description %}
+<h4>{{ categories_filter.name }}</h4>
+<p>{{ category_description }}</p>
+{% else %}
+<h4>Nuestras plantas</h4>
+<p>¡Explora nuestra exuberante variedad de categorías de plantas!</p>
+{% endif %}
+</div>
 
 <div class="container-fluid">
     <div class="row">

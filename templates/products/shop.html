@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+           <div class="categorias">
+                <h3>Categorias</h3>
+                <ul>
+                    <li><a href="{% url 'shop' %}">Todos</a></li>
+                
+                    {% for category in categories %}
+                        <li><a href="{% url 'shop_categories' category.id %}">{{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>
+           </div>
+        </div>
+        <div class="col-10">
+            <div class="row">
+                {% for product in products %}
+                <div class="col">
+                
+                    <div class="card-products">
+                        <a href={% url "get_product" id=product.id%}>
+                            <img src="{{product.image.url}}" class="fixed-image-size" alt="image-product"/>
+                            <div class="card-body-products">
+                                <h5 class="card-title-products">{{product.name}}</h5>
+                        </a>
+                                <h6>{{product.price}}</h6>
+                        </div>
+                    </div>
+                
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>  
+{% endblock%}
+
+{% comment %} <a href={% url "get_product" id=product.id%} class="btn btn-primary">Leer mas</a> {% endcomment %}

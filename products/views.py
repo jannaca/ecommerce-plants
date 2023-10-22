@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Product, Category
 
 def index(request):
-    products = Product.objects.all() #Listar todos los productos del modelo
+    last_products = Product.objects.order_by('-created_date')[:3] #Obtener los ultimos 3 productos añadidos
     
     return render( request, # solicitud HTTP que se pasa a la vista.
                    "products/index.html", # plantilla HTML que se utilizará para renderizar la respuesta
-                  { "products": products }) # diccionario que contiene datos que se pasan a la plantilla
+                  { "products": last_products }) # diccionario que contiene datos que se pasan a la plantilla
 
 def get_product(request,id):
     product = Product.objects.get(id=id) #obtener el id del producto que se pasa por parametro
@@ -14,3 +14,16 @@ def get_product(request,id):
     return render( request, 
                    "products/show_product.html", 
                   { "product": product }) 
+
+def shop(request,category_id=None):
+    categories = Category.objects.all()
+    if category_id is not None:
+        categories_filter = Category.objects.get(id=category_id)
+        products_filter = Product.objects.filter(categories=categories_filter)
+    else:
+        products_filter = Product.objects.all()
+    return render(
+        request,
+        "products/shop.html",
+        {"categories": categories,"products":products_filter}
+    )

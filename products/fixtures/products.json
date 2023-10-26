@@ -1,0 +1,218 @@
+[
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "name": "Cactus de Peluche",
+            "price": "9.99",
+            "description": "Este cactus es perfecto para aquellos que desean agregar un toque de encanto y suavidad a su espacio. Su aspecto de peluche lo convierte en una opción única para la decoración de interiores.",
+            "image": "media/products/cactus-peluche.jpg",
+            "categories": [
+                1,
+                2,
+                4
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+            "name": "Cactus Oreja de conejo",
+            "price": "12.99",
+            "description": "El cactus Oreja de Conejo es conocido por sus hojas planas y su aspecto peculiar que se asemeja a las orejas de un conejo. Agrega un toque de exotismo y diversión a tu hogar.",
+            "image": "media/products/cactus-conejo.jpg",
+            "categories": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+            "name": "Cactus Barril",
+            "price": "8.49",
+            "description": "Los cactus barril son resistentes y de bajo mantenimiento, ideales para aquellos que buscan una planta fácil de cuidar. Sus formas redondas y su apariencia espinosa le dan un atractivo único.",
+            "image": "media/products/cactus-barril.jpg",
+            "categories": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+            "name": "Cactus San Pedro",
+            "price": "14.99",
+            "description": "El cactus San Pedro es una planta majestuosa con tallos verdes altos y columnares. Añade una sensación de serenidad y belleza natural a cualquier espacio.",
+            "image": "media/products/cactus-pedro.jpg",
+            "categories": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 5,
+        "fields": {
+            "name": "Cactus Torres Amarillas",
+            "price": "10.99",
+            "description": "Con sus colores vivos y formas intrigantes, los cactus Torres Amarillas son una elección audaz para quienes buscan un toque de originalidad en su decoración.",
+            "image": "media/products/cactus-torre.jpg",
+            "categories": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 6,
+        "fields": {
+            "name": "Bromelia",
+            "price": "19.89",
+            "description": "La bromelia es una planta tropical con hojas vibrantes y flores exóticas. Aporta una sensación de frescura y vitalidad a cualquier ambiente.",
+            "image": "media/products/bromelia.webp",
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 7,
+        "fields": {
+            "name": "Zamioculca",
+            "price": "22.49",
+            "description": "La Zamioculca es una planta de interior popular debido a su resistencia y apariencia elegante. Sus hojas brillantes y su forma compacta la hacen perfecta para espacios más pequeños.",
+            "image": "media/products/zamioculca.jpg",
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 8,
+        "fields": {
+            "name": "Árbol del Dinero",
+            "price": "24.99",
+            "description": "El Árbol del Dinero es conocido por atraer prosperidad y buena suerte. Su hoja en forma de moneda lo convierte en un regalo simbólico y hermoso.",
+            "image": "media/products/arbol-dinero.webp",
+            "categories": [
+                2,
+                4
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 9,
+        "fields": {
+            "name": "Lengua de Suegra",
+            "price": "11.99",
+            "description": "La Lengua de Suegra es una planta suculenta resistente y fácil de cuidar. Sus hojas puntiagudas y su apariencia única la hacen destacar.",
+            "image": "media/products/lengua-suegra.jpg",
+            "categories": [
+                2,
+                4
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 10,
+        "fields": {
+            "name": "Anturio",
+            "price": "18.99",
+            "description": "El Anturio es apreciado por sus hermosas flores en forma de corazón. Agrega un toque de elegancia y color a cualquier espacio.",
+            "image": "media/products/anthurium.webp",
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 11,
+        "fields": {
+            "name": "Orquidea",
+            "price": "19.99",
+            "description": "Las orquídeas son conocidas por su belleza y elegancia. Sus flores únicas son un símbolo de lujo y sofisticación.",
+            "image": "media/products/orquidea.jpg",
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 12,
+        "fields": {
+            "name": "Gardenia",
+            "price": "27.99",
+            "description": "La Gardenia es amada por su fragante aroma y flores blancas. Aporta un toque de dulzura y frescura a cualquier entorno.",
+            "image": "media/products/gardenia.jpg",
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 13,
+        "fields": {
+            "name": "Amarilis",
+            "price": "15.99",
+            "description": "El Amarilis es famoso por sus grandes y coloridas flores. Es una elección llamativa para la decoración de temporada.",
+            "image": "media/products/amarilis.webp",
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 14,
+        "fields": {
+            "name": "Árbol de Olivo",
+            "price": "29.59",
+            "description": "El Árbol de Olivo es un símbolo de paz y longevidad. Su presencia en interiores agrega un toque mediterráneo y serenidad.",
+            "image": "media/products/olivo.webp",
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 15,
+        "fields": {
+            "name": "Palma Areca",
+            "price": "23.49",
+            "description": "La Palma Areca es una planta de interior popular debido a su apariencia exuberante y tropical. Añade un toque de frescura y vida al hogar.",
+            "image": "media/products/palma.jpg",
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 16,
+        "fields": {
+            "name": "Malamadre",
+            "price": "17.49",
+            "description": "La Malamadre es conocida por su resistencia y atractivas hojas en forma de espada. Es una opción ideal para quienes buscan una planta de interior fácil de cuidar.",
+            "image": "media/products/mala-madre.jpg",
+            "categories": [
+                4
+            ]
+        }
+    }
+]

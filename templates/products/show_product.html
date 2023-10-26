@@ -3,24 +3,46 @@
   <div class="container">
     <div class="row product-detail-row mt-4 mb-5">
       <div class="col-5">
-        <img src="https://pbs.twimg.com/media/FGBYPmtX0AguaV2.jpg" class="img-fluid" height="" />
+        <img src="{{ product.image.url }}" class="img-fluid" height="" />
       </div>
       <div class="col-7">
         <div class="jumbotron">
           <h1 class="display-4">{{ product.name }}</h1>
           <div class="price-container">
-            <h5 class="card-title"><s>5 USD</s></h5>
-            <h5 class="card-title">3 USD</h5>
+            <h5 class="card-title">{{ product.price }} usd</h5>
           </div>
           <hr class="my-4" />
           <p>{{ product.brand.description }}</p>
 
-          <form method="post" action="{% url 'add_to_cart' product.id %}">
+          <form action="{% url 'add_to_cart' %}" method="post">
             {% csrf_token %}
-            <button type="submit">Agregar al carrito</button>
+            <input type="hidden" name="product_id" value="{{ product.id }}" />
+            <button type="button" class="btn btn-info" id="remove">-</button>
+            <input type="number" value="1" class="form-control col-sm-1" id="quantity" name="quantity" readonly />
+            <button type="button" class="btn btn-info" id="add">+</button>
+            <div class="mt-2">
+              <button type="submit">Agregar al carrito</button>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    const add = document.getElementById('add')
+    const remove = document.getElementById('remove')
+    const quantity = document.getElementById('quantity')
+    
+    add.addEventListener('click', function () {
+      quantity.value = parseInt(quantity.value) + 1
+    })
+    remove.addEventListener('click', function () {
+      value = parseInt(quantity.value)
+      if (value != 1) {
+        value = value - 1
+      }
+      quantity.value = value
+    })
+  </script>
 {% endblock %}

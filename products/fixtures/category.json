@@ -1,0 +1,34 @@
+[
+    {
+        "model": "products.category",
+        "pk": 1,
+        "fields": {
+            "name": "Cactus",
+            "description": "Explora nuestra selección de cactus, conocidos por su resistencia y belleza única. Estas plantas requieren poco mantenimiento y son ideales para aquellos que desean iniciarse en el mundo de la jardinería. Los cactus son perfectos para dar un toque de color y exotismo a cualquier espacio."
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 2,
+        "fields": {
+            "name": "Para principiantes",
+            "description": "Esta categoría está diseñada pensando en quienes recién comienzan su viaje en la jardinería. Aquí encontrarás plantas fáciles de cuidar y mantener, perfectas para aquellos que no tienen experiencia previa. Disfruta de la belleza de las plantas sin preocuparte por complicados cuidados."
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 3,
+        "fields": {
+            "name": "Florales",
+            "description": "Nuestra colección de plantas florales es una explosión de colores y fragancias. Estas plantas son ideales para alegrar tu hogar o jardín con hermosas flores. Descubre una variedad de opciones que te permitirán crear espacios llenos de vida y belleza."
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 4,
+        "fields": {
+            "name": "Pet Friendly",
+            "description": "Si tienes mascotas en casa, es importante elegir plantas que sean seguras para ellas. Nuestra selección de categorías 'Pet Friendly' ha sido cuidadosamente elegida para garantizar que no representen un riesgo para tus amigos peludos. Disfruta de la naturaleza sin preocupaciones."
+        }
+    }
+]

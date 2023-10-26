@@ -19,8 +19,10 @@
         >
         
           <ul class="navbar-nav">
+            <!--CARRITO-->
+            
             <li class="nav-item">
-              <a class="nav-link nav-border nav-border-none" href=""><i class="bi bi-cart2"></i></a>
+              <a class="nav-link nav-border nav-border-none" href="{% url 'cart' %}"><i class="bi bi-cart2"></i></a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">

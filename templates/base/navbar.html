@@ -20,10 +20,13 @@
         
           <ul class="navbar-nav">
             <!--CARRITO-->
-            
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link nav-border nav-border-none" href="{% url 'cart' %}"><i class="bi bi-cart2"></i></a>
             </li>
+            {% else %}
+              <a class="nav-link nav-border nav-border-none" data-bs-toggle="modal" data-bs-target="#miModal" href=""><i class="bi bi-cart2"></i></a>
+            {% endif %}
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,9 +74,7 @@
     </nav>
   </header>
 
-
- 
-
-
+<!-- Modal HTML -->
+{% include 'cart/modals.html' %}
 
 

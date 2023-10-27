@@ -8,15 +8,7 @@
         <form action="{% url 'signup' %}" method="post">
           {% csrf_token %}
           {{ form }}
-
           <input class="btn submit-btn btn-tomato" type="submit" value="Signup" />
-          {% if username_errors %}
-            <ul>
-              {% for error in username_errors %}
-                <li class="error">{{ error }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
         </form>
       </div>
     </div>

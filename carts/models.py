@@ -1,5 +1,4 @@
 import uuid
-import decimal 
 from django.db import models
 from products.models import Product
 from django.contrib.auth.models import User
@@ -9,27 +8,20 @@ class Cart(models.Model):
     cart_id = models.CharField(max_length=100,null =False, blank =False, unique= True, default='')
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     products = models.ManyToManyField(Product, through= "CartItem")
-    subtotal = models.DecimalField(default=0.0, max_digits=8,decimal_places=2)
     total = models.DecimalField(default=0.0, max_digits=8,decimal_places=2)
     created_at = models.DateField(auto_now_add=True)
-
-    FEE = 0.06
 
     def __str__(self):
         return self.cart_id
     
     def update_totals(self):
-        self.update_subtotal()
-        self.update_total()
-    
-    def update_subtotal(self):
-        self.subtotal = sum([
-            cp.quantity * cp.product.price for cp in self.products_related()
+        total = sum([
+            cp.quantity * cp.product.price for cp in self.cartitem_set.select_related("product")
         ])
-        self.save()
-
-    def update_total(self):
-        self.total = self.subtotal + (self.subtotal * decimal.Decimal(Cart.FEE))
+        self.total = total
+        order = self.order_set.first()
+        if order:
+            order.update_total()
         self.save()
 
     def products_related(self):

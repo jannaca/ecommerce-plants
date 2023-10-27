@@ -1,0 +1,8 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  <h1>Compra generada con exito</h1>
+  <h1>Detalles de la Orden</h1>
+  <p>Usuario: {{ order.user.username }}</p>
+  <p>Fecha de Creación: {{ order.created_at }}</p>
+  <p>Total: ${{ order.total }}</p>
+{% endblock %}

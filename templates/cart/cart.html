@@ -48,11 +48,14 @@
         <div class="card">
           <div class="card-body">
             <div class="font-weight-bold">
-              Subtotal({{ cart.products.count }}): <span class="text-danger">{{ cart.subtotal }}</span>
+              Total({{ total_quantity }}): <span class="text-danger">{{ cart.total }}</span>
             </div>
             <div class="mt-2">
               <a href="{% url 'shop' %}">Seguir comprando</a>
-              <button>Ordenar</button>
+              <form method="post "action="{% url 'orders' %}">
+                {% csrf_token %}
+                <button type="submit">Ordenar</button>
+              </form>
             </div>
           </div>
         </div>

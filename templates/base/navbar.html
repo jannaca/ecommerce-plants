@@ -1,80 +1,56 @@
 <header>
-    <nav class="navbar navbar-expand-lg bg-white">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-        
-          <ul class="navbar-nav">
-            <!--CARRITO-->
-            {% if user.is_authenticated %}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">L O G O</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
             <li class="nav-item">
+              <!-- CART -->
               <a class="nav-link nav-border nav-border-none" href="{% url 'cart' %}"><i class="bi bi-cart2"></i></a>
             </li>
-            {% else %}
-              <a class="nav-link nav-border nav-border-none" data-bs-toggle="modal" data-bs-target="#miModal" href=""><i class="bi bi-cart2"></i></a>
-            {% endif %}
-            {% if user.is_authenticated %}
+          {% else %}
+            <a class="nav-link nav-border nav-border-none" data-bs-toggle="modal" data-bs-target="#miModal" href=""><i class="bi bi-cart2"></i></a>
+          {% endif %}
+          {% if user.is_authenticated %}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{user.username}} <i class="bi bi-person-fill"></i>
-              </a>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.username }} <i class="bi bi-person-fill"></i></a>
               <ul class="dropdown-menu">
                 <li>
-                  <form action={% url "logout" %} method="post" class="m-0">
-                  {% csrf_token %}
-                  <button class="btn dropdown-item nav-border nav-border-none" type="submit">Cerrar Sesión</button>
-                </form></li>
-              </ul>
-            </li>
-            {% else %}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-fill"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="nav-link nav-border nav-border-none"
-                  href="{% url 'login' %}">
-                  Iniciar Sesión
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link nav-border nav-border-none"
-                  href="{% url 'signup' %}">
-                    Registrate
-                  </a>
+                  <form action="{% url 'logout' %}" method="post" class="m-0">
+                    {% csrf_token %}
+                    <button class="btn dropdown-item nav-border nav-border-none" type="submit">Cerrar Sesión</button>
+                  </form>
                 </li>
               </ul>
             </li>
-            {% endif %}
-            <li class="nav-item">
-              <a class="nav-link nav-border nav-border-none" href="{% url "shop"%}">TIENDA</a>
+          {% else %}
+            <li class="nav-item dropdown">
+              <!-- ACCOUNT -->
+              <a class="nav-link dropdown-toggle nav-border" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="nav-link nav-border nav-border-none" href="{% url 'login' %}">Iniciar Sesión</a>
+                </li>
+                <li>
+                  <a class="nav-link nav-border nav-border-none" href="{% url 'signup' %}">Registrate</a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-border-home" href={% url "index"%}>INICIO</a>
-            </li>
-          </ul>
-        </div>
+          {% endif %}
+          <li class="nav-item">
+            <!-- SHOP -->
+            <a class="nav-link nav-border nav-border-none" href="{% url 'shop' %}">TIENDA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-border-home" href="{% url 'index' %}">INICIO</a>
+          </li>
+        </ul>
       </div>
-     
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-<!-- Modal HTML -->
+<!-- MODALS -->
 {% include 'cart/modals.html' %}
-
-

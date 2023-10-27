@@ -9,8 +9,6 @@ class Order(models.Model):
     created_at = models.DateField(auto_now_add=True)
     total = models.DecimalField(default=0,max_digits=8,decimal_places=2)
 
-
-
     def update_total(self):
         self.total = self.cart.total
         self.save() 

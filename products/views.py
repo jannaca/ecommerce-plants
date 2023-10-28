@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Product, Category
 
 def index(request):
-    last_products = Product.objects.order_by('-created_date')[:3] #Obtener los ultimos 3 productos añadidos
+    last_products = Product.objects.order_by('-created_date')[:4] #Obtener los ultimos 4 productos añadidos
     
     return render( request, # solicitud HTTP que se pasa a la vista.
                    "products/index.html", # plantilla HTML que se utilizará para renderizar la respuesta
@@ -23,10 +23,14 @@ def shop(request,category_id=None):
         categories_filter = Category.objects.get(id=category_id)
         products_filter = Product.objects.filter(categories=categories_filter)
         category_description = categories_filter.description
+        
     else:
         products_filter = Product.objects.all()
     return render(
         request,
         "products/shop.html",
-        {"categories": categories,"products":products_filter, "category_description": category_description,"categories_filter": categories_filter}
+        {"categories": categories,
+         "products":products_filter, 
+         "category_description": category_description,
+         "categories_filter": categories_filter}
     )

@@ -22,18 +22,20 @@
 
   <div class="container mt-5">
     <section class="text-center">
-      <h3 class="mb-5 fst-italic">Últimos productos</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <h3 class="fst-italic">Últimos productos</h3>
+      <div class="row d-flex justify-content-center">
         {% for product in products %}
-          <div class="col-lg col-md-6">
-            <div class="card h-100">
-              <a href="{% url 'get_product' id=product.id %}" class="product-link">
-                <img src="{{ product.image.url }}" class="card-img-top fixed-image-size" alt="image-product" />
-                <div class="card-body">
-                  <h5 class="card-title fst-italic">{{ product.name }}</h5>
-              </a>
-                  <h6>{{ product.price }} $</h6>
+          <div class="col-lg col-md-6 max">
+            <div class="card mt-5">
+              <img class="mx-auto fixed-image-size" src="{{ product.image.url }}" />
+              <div class="card-body text-center">
+                <div class="cvp">
+                  <h5 class="card-title font-weight-bold">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.price }} $</p>
+                  <a href="{% url 'get_product' id=product.id %}" class="btn cart px-auto">DETALLES</a>
+                  {% comment %} <a href="{% url 'get_product' id = product.id %}" class="btn cart px-auto">AÑADIR AL CARRITO</a> {% endcomment %}
                 </div>
+              </div>
             </div>
           </div>
         {% endfor %}

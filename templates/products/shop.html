@@ -1,51 +1,49 @@
 {% extends 'base/base.html' %}
 {% block content %}
-
-<div class="container-fluid">
-{% if category_description %}
-<h4>{{ categories_filter.name }}</h4>
-<p>{{ category_description }}</p>
-{% else %}
-<h4>Nuestras plantas</h4>
-<p>¡Explora nuestra exuberante variedad de categorías de plantas!</p>
-{% endif %}
-</div>
-
-<div class="container-fluid">
+  <div class="container-fluid px-5">
+    {% if category_description %}
+      <h2 class="title-shop">{{ categories_filter.name }}</h2>
+      <p class="description-shop">{{ category_description }}</p>
+    {% else %}
+      <h2 class="title-shop">Nuestras plantas</h2>
+      <p class="description-shop">¡Explora nuestra exuberante variedad de categorías de plantas!</p>
+    {% endif %}
+    <hr class="m-0" />
+  </div>
+  <div class="container-fluid px-5">
     <div class="row">
-        <div class="col-2">
-           <div class="categorias">
-                <h3>Categorias</h3>
-                <ul>
-                    <li><a href="{% url 'shop' %}">Todos</a></li>
-                
-                    {% for category in categories %}
-                        <li><a href="{% url 'shop_categories' category.id %}">{{ category.name }}</a></li>
-                    {% endfor %}
-                </ul>
-           </div>
-        </div>
-        <div class="col-10">
-            <div class="row">
-                {% for product in products %}
-                <div class="col">
-                
-                    <div class="card-products">
-                        <a href={% url "get_product" id=product.id%}>
-                            <img src="{{product.image.url}}" class="fixed-image-size" alt="image-product"/>
-                            <div class="card-body-products">
-                                <h5 class="card-title-products">{{product.name}}</h5>
-                        </a>
-                                <h6>{{product.price}}</h6>
-                        </div>
-                    </div>
-                
-                </div>
-                {% endfor %}
+      <div class="col-2 mt-5">
+        <div class="categories">
+          <h4>Categorias</h4>
+          <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action"><a href="{% url 'shop' %}">Todos</a></button>
+          </div>
+          {% for category in categories %}
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action"><a href="{% url 'shop_categories' category.id %}">{{ category.name }}</a></button>
             </div>
+          {% endfor %}
         </div>
+      </div>
+      <div class="col-10">
+        <div class="row">
+          {% for product in products %}
+            <div class="col max">
+              <div class="card mt-5">
+                <img class="mx-auto fixed-image-size" src="{{ product.image.url }}" />
+                <div class="card-body text-center">
+                  <div class="cvp">
+                    <h5 class="card-title font-weight-bold">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.price }} $</p>
+                    <a href="{% url 'get_product' id=product.id %}" class="btn cart px-auto">DETALLES</a>
+                    {% comment %} <a href="{% url 'get_product' id = product.id %}" class="btn cart px-auto">AÑADIR AL CARRITO</a> {% endcomment %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
-</div>  
-{% endblock%}
-
-{% comment %} <a href={% url "get_product" id=product.id%} class="btn btn-primary">Leer mas</a> {% endcomment %}
+  </div>
+{% endblock %}

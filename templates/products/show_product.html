@@ -1,27 +1,39 @@
 {% extends 'base/base.html' %}
 {% block content %}
-  <div class="container">
-    <div class="row product-detail-row mt-4 mb-5">
-      <div class="col-5">
-        <img src="{{ product.image.url }}" class="img-fluid" height="" />
-      </div>
-      <div class="col-7">
-        <div class="jumbotron">
-          <h1 class="display-4">{{ product.name }}</h1>
-          <div class="price-container">
-            <h5 class="card-title">{{ product.price }} usd</h5>
+<div class="container mt-5 mb-5">
+  <div class="card">
+    <div class="row g-0">
+      <div class="col-md-6 border-end">
+        <div class="d-flex flex-column justify-content-center">
+          <div class="main_image d-flex align-items-center justify-content-evenly">
+            <img src="{{ product.image.url }}" id="main_product_image" class="image-fluid product-img">
           </div>
-          <hr class="my-4" />
-          <p>{{ product.brand.description }}</p>
-          {% if user.is_authenticated %}
-            <form action="{% url 'add_to_cart' %}" method="post">
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center">
+        <div class="p-3 right-side">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3>{{ product.name }}</h3>
+            <span class="heart"><i class="bx bx-heart"></i></span>
+          </div>
+          <div class="mt-2 pr-3 content">
+            <p>{{ product.description}}</p>
+          </div>
+          <h3>{{ product.price }} $</h3>
+          <div class="">
+            {% if user.is_authenticated %}
+            <form action="{% url 'add_to_cart' %}" method="post" class="cart-form">
               {% csrf_token %}
               <input type="hidden" name="product_id" value="{{ product.id }}" />
-              <button type="button" class="btn btn-info" id="remove">-</button>
-              <input type="number" value="1" class="form-control col-sm-1" id="quantity" name="quantity" readonly />
-              <button type="button" class="btn btn-info" id="add">+</button>
-              <div class="mt-2">
-                <button type="submit">Agregar al carrito</button>
+              <div class="input-group input-group-sm">
+                <button type="button" class="btn  quantity-button" id="remove">-</button>
+                <div>
+                  <input type="number" value="1" class="form-control quantity-input d-inline text-center" name="quantity" id="quantity" style="width: 50px;" readonly />
+                </div>
+                <button type="button" class="btn quantity-button" id="add">+</button>
+              </div>
+              <div class="buttons d-flex flex-row mt-5 gap-3">
+                <button type="submit" class="btn btn-dark" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">Agregar al carrito</button>
               </div>
             </form>
           {% else %}
@@ -32,11 +44,12 @@
               <button data-bs-toggle="modal" data-bs-target="#miModal" href="">Agregar al carrito</button>
             </div>
           {% endif %}
+        
         </div>
       </div>
     </div>
   </div>
-
+</div>
   <script>
     const add = document.getElementById('add')
     const remove = document.getElementById('remove')

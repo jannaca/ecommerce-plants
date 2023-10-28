@@ -5,4 +5,11 @@
   <p>Usuario: {{ order.user.username }}</p>
   <p>Fecha de Creación: {{ order.created_at }}</p>
   <p>Total: ${{ order.total }}</p>
+  <div>
+    {%for product  in cart.products.all%}
+    {{product.name}}
+    {% endfor %}
+  </div>
+    <a href="{% url 'index' %}">Confirmar</a>
+
 {% endblock %}

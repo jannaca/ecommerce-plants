@@ -1,12 +1,21 @@
 from .models import Order
+from carts.models import Cart
+import json
 
-def get_or_create_order(cart,request):
-    order = Order.objects.filter(cart=cart).first()
+
+def get_or_create_order(cart_contents, total, request):
+    order = Order.objects.filter(status='in_progress').first()
     
-    if order is None and request.user.is_authenticated:
-        order = Order.objects.create(cart=cart, user=request.user)
+    if not order and request.user.is_authenticated:
+        order = Order.objects.create(user=request.user, status='completed')
 
     if order:
-        request.session["order_id"] = order.id
+        # Almacena el contenido del carrito en el campo 'cart_contents' como JSON
+        order.cart_contents = json.dumps(cart_contents)
+        
+        # Actualiza el campo 'total' de la orden
+        order.total = total
+        order.save()
 
     return order
+

@@ -1,12 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from carts.utils import get_or_created_cart
 from .utils import get_or_create_order
+# from carts.models import Cart
+# from .utils import clear_cart_and_create_new_order
 
 def create_order(request):
     cart = get_or_created_cart(request)
-    order = get_or_create_order(cart,request)
+    cart_contents = {'products': [{'id': item.product.id, 'quantity': item.quantity} for item in cart.cartitem_set.all()],}
+    total = cart.total
+    order = get_or_create_order(cart_contents, total, request)
+    cart.clear_cart()
     return render(request,
            "orders/orders.html",
-           {"order":order})
+           {"order": order})
 
 

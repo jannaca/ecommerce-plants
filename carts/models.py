@@ -3,6 +3,7 @@ from django.db import models
 from products.models import Product
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save, m2m_changed, post_save
+from collections import defaultdict
 
 class Cart(models.Model):
     cart_id = models.CharField(max_length=100,null =False, blank =False, unique= True, default='')
@@ -19,13 +20,27 @@ class Cart(models.Model):
             cp.quantity * cp.product.price for cp in self.cartitem_set.select_related("product")
         ])
         self.total = total
-        order = self.order_set.first()
-        if order:
-            order.update_total()
+        # order = self.order_set.first()
+        # if order:
+        #     order.update_total()
         self.save()
 
     def products_related(self):
         return self.cartitem_set.select_related("product")
+    
+    def clear_cart(self):
+        self.products.clear()
+
+    def get_cart_contents(self):
+        cart_contents = {}  # Un diccionario para almacenar productos y cantidades
+        cart_items = self.cartitem_set.all()  # Suponiendo que tienes un modelo CartItem relacionado con Cart
+
+        for item in cart_items:
+            product_id = item.product.id  # Obtener el ID del producto
+            quantity = item.quantity  # Suponiendo que tienes un campo "quantity" en tu modelo CartItem
+            cart_contents[product_id] = quantity
+
+        return cart_contents
 
 class CartProductsManager(models.Manager):
     def create_or_update_quantity(self, cart,product,quantity=1):

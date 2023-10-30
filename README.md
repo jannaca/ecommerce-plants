@@ -2,6 +2,14 @@
 <p>Proyecto de backend desarrollado como parte de un bootcamp.</p>
 
 <h1 align="center"> -----🪴 Plantalia  🪴----- </h1>
+<p>Antes de comenzar, asegurate de tener instalado Makefile en tu sistema.</p>
+<p>o</p>
+<p>Usa la ruta larga para los comandos tal como:</p>
+
+```
+python manage.py runserver --settings=settings.local
+
+``
 
 <h2>Instalación</h2>
 <h3>1. Crea un entorno virtual:</h3>

@@ -31,13 +31,19 @@ pip install -r requirements.txt
   <li>
     En la carpeta settings, crea un archvio con estos datos y sustituye:
     
-    ```
     [client]
      database = <nameDataBase>
      user = <user>
      password = <password>
      default-character-set = utf8
 
+  </li>
+  <li>
+    Ejecuta las migraciones 
+    
+    ```
+    make makemigrations
+    make migrate
     ```
 
   </li>

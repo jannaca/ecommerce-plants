@@ -201,3 +201,30 @@
     margin: 10px 0;
 }
 
+.btn-2{
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(0, 171, 131);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn-2:hover{
+    background-color: rgb(178, 241, 227);
+    color: #000;
+}
+
+.btn-3{
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(212, 115, 3);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.btn-3:hover{
+    color: #000;
+    background-color: rgb(236, 195, 147);
+    
+}

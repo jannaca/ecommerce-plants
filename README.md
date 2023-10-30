@@ -31,3 +31,9 @@ make superuser
 make loaddata
 
 ```
+<h2> Para ejecutar el test </h2>
+
+```
+make test
+
+```

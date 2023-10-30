@@ -18,7 +18,8 @@ pip install -r requirements.txt
 
 ```
 
-<h2>Para crear un super usuario y acceder al admin</h3>
+<h2>Para crear un super usuario y acceder al admin</h2>
+
 ```
 make superuser
 

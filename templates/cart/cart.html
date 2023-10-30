@@ -1,74 +1,70 @@
 {% extends 'base/base.html' %}
 {% block content %}
-  
-
- <div class="container-fluid p-5 pt-3">
-  <h2 class="title-shop">Carrito</h2>
-      <p class="description-shop">¡Disfruta de una experiencia de compra increíble y no dudes en contactarnos si tienes alguna pregunta o necesitas ayuda!</p>
-    <hr class="" />
-  {% if cart.products.exists %}
-  <div class="row">
-    <div class="col-8">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% comment %} {% for product in cart.products  %} {% endcomment %}
-          {% for cp in cart.products_related %}
-            {%with product=cp.product %}
+  <div class="container-fluid p-5 pt-3">
+    <h2 class="title-shop">Carrito</h2>
+    <p class="description-shop">¡Disfruta de una experiencia de compra increíble y no dudes en contactarnos si tienes alguna pregunta o necesitas ayuda!</p>
+    <hr />
+    {% if cart.products.exists %}
+      <div class="row">
+        <div class="col-8">
+          <table class="table">
+            <thead>
               <tr>
-                <th>{{ forloop.counter }}</th>
-                <th>
-                  {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="" width="60" height="60" />
-                  {% endif %}
-                </th>
-                <th>
-                  <a href="{% url 'get_product' id=product.id %}">{{ product.name }}</a>
-                  <form action="{% url 'remove_to_cart' %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="product_id" value="{{ product.id }}" />
-                    <button type="submit" class="btn btn-link text-danger p-0">Eliminar</button>
-                  </form>
-                </th>
-                <th>{{ cp.quantity }}</th>
-                <th>
-                  <span class="font-weight-bold text-danger">{{ product.price }}</span>
-                </th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
               </tr>
-            {% endwith %}
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <p>Total({{ total_quantity }}): <span class="text-danger">{{ cart.total }}</span></p>
-          <a href="{% url 'shop' %}" class="btn-2 ">Seguir comprando</a>
-          <form method="post "action="{% url 'orders' %}" class="mt-3">
-            {% csrf_token %}
-            <button type="submit" class="btn-3">Ordenar</button>
-          </form>
-
-           
+            </thead>
+            <tbody>
+              {% for cp in cart.products_related %}
+                {% with product=cp.product %}
+                  <tr>
+                    <th>{{ forloop.counter }}</th>
+                    <th>
+                      {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="" width="60" height="60" />
+                      {% endif %}
+                    </th>
+                    <th>
+                      <a href="{% url 'get_product' id=product.id %}">{{ product.name }}</a>
+                      <form action="{% url 'remove_to_cart' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}" />
+                        <button type="submit" class="btn btn-link text-danger p-0">Eliminar</button>
+                      </form>
+                    </th>
+                    <th>{{ cp.quantity }}</th>
+                    <th>
+                      <span class="font-weight-bold text-danger">{{ product.price }}</span>
+                    </th>
+                  </tr>
+                {% endwith %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p>
+                Total({{ total_quantity }}): <span class="text-danger">{{ cart.total }}</span>
+              </p>
+              <a href="{% url 'shop' %}" class="btn-2">Seguir comprando</a>
+              <form method="post " action="{% url 'orders' %}" class="mt-3">
+                {% csrf_token %}
+                <button type="submit" class="btn-3">Ordenar</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    {% else %}
+      <div class="col">
+        <p class="">Tu carrito de compras está vacío. ¡Agrega productos emocionantes y comienza a llenarlo con artículos que te encanten!</p>
+        <a href="{% url 'shop' %}" class="btn-3">Seguir comprando</a>
+      </div>
+    {% endif %}
   </div>
-{% else %}
-  <div class="col">
-    <p class="h3">Tu carrito de compras está vacío. ¡Agrega productos emocionantes y comienza a llenarlo con artículos que te encanten!</p>
-    <a href="{% url 'shop' %}">Seguir comprando</a>
-  </div>
-{% endif %}
- </div>
 {% endblock %}

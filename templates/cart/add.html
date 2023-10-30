@@ -1,20 +1,14 @@
 {% extends 'base/base.html' %}
 {% block content %}
-  <h1>Añadido</h1>
-  {% comment %} <div class="container">
-    <div class="row product-detail-row mt-4 mb-5">
-      <div class="col-5">
-        <img src="{{ product.image.url }}" class="img-fluid" height="" />
+  .<div class="container-fluid p-5 pt-2">
+    <h2 class="title-shop">Producto añadido</h2>
+    <div class="">
+      <div class="pt-3">
+        <a href="{% url 'cart' %}" class="btn-3">Ver carrito</a>
       </div>
-      <div class="col-7">
-        <div class="jumbotron">
-          <h1 class="display-4">{{ product.name }}</h1>
-          <div class="price-container">
-            <h5 class="card-title">3 USD</h5>
-          </div>
-          <hr class="my-4" />
-        </div>
+      <div class="pt-4">
+        <a href="{% url 'shop' %}" class="btn-2">Seguir comprando</a>
       </div>
     </div>
-  </div> {% endcomment %}
+  </div>
 {% endblock %}

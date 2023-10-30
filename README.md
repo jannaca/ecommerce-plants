@@ -41,10 +41,34 @@ pip install -r requirements.txt
   <li>
     Ejecuta las migraciones 
     
-    ```
     make makemigrations
     make migrate
-    ```
+
+  </li>
+
+  <li>
+    Cargar datos iniciales en la base de datos
+    
+    make loaddata
+
+  </li>
+  <li>
+    Inicia el servidor:
+
+    make runserver
+
+  </li>
+  <li>
+    Crear un super usuario y acceder al admin
+
+    make superuser
+
+  </li>
+
+  <li>
+    Para ejecutar pruebas en el proyecto
+
+    make test
 
   </li>
 </ul>

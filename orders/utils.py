@@ -1,7 +1,5 @@
 from .models import Order
-from carts.models import Cart
 import json
-
 
 def get_or_create_order(cart_contents, total, request):
     order = Order.objects.filter(status='in_progress').first()

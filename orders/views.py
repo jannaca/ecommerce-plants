@@ -1,8 +1,6 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from carts.utils import get_or_created_cart
 from .utils import get_or_create_order
-# from carts.models import Cart
-# from .utils import clear_cart_and_create_new_order
 
 def create_order(request):
     cart = get_or_created_cart(request)

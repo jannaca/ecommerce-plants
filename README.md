@@ -17,6 +17,11 @@ env\Scripts\activate
 pip install -r requirements.txt
 
 ```
+<h2>Correr sevidor</h2>
+
+```
+make runserver
+```
 
 <h2>Para crear un super usuario y acceder al admin</h2>
 

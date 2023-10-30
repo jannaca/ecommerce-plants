@@ -24,9 +24,9 @@ python -m venv env
 <h3>2. Activa el entorno virtual:</h3>
 
 ```
-## en Unix:
+# en Unix:
 source env/bin/activate
-## en Windows:
+# en Windows:
 env\Scripts\activate
 
 

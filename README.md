@@ -3,7 +3,7 @@ bootcamp backend project
 
 <h1 align="center"> -----🪴 Plantalia  🪴----- </h1>
 
-<h2> -----Instalación----- </h2>
+<h2>Instalación</h2>
 
 ```
 python -m venv env
@@ -16,7 +16,17 @@ env\Scripts\activate
 
 pip install -r requirements.txt
 
-make migrate
-make run
+```
+
+<h2>Para crear un super usuario y acceder al admin</h3>
+```
+make superuser
+
+```
+
+<h2> Para cargar la base de datos </h2>
+
+```
+make loaddata
 
 ```

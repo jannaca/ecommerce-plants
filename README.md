@@ -1,44 +1,44 @@
 # ecommerce-plants
-bootcamp backend project
+<p>Proyecto de backend desarrollado como parte de un bootcamp.</p>
 
 <h1 align="center"> -----🪴 Plantalia  🪴----- </h1>
 
 <h2>Instalación</h2>
+<h3>1. Crea un entorno virtual:</h3>
 
 ```
 python -m venv env
 
-# Activación en Unix
-source env/bin/activate
+```
+<h3>2. Activa el entorno virtual:</h3>
 
-# Activación en Windows
+```
+## en Unix:
+source env/bin/activate
+## en Windows:
 env\Scripts\activate
 
+
+```
+<h3>3. Instala las dependencias del proyecto:</h3>
+
+```
 pip install -r requirements.txt
 
 ```
-<h2>Correr sevidor</h2>
+<h2> Configurar base de datos MySQL</h2>
+<ul>
+  <li>
+    En la carpeta settings, crea un archvio con estos datos y sustituye:
+    
+    ```
+    [client]
+     database = <nameDataBase>
+     user = <user>
+     password = <password>
+     default-character-set = utf8
 
-```
-make runserver
-```
+    ```
 
-<h2>Para crear un super usuario y acceder al admin</h2>
-
-```
-make superuser
-
-```
-
-<h2> Para cargar la base de datos </h2>
-
-```
-make loaddata
-
-```
-<h2> Para ejecutar el test </h2>
-
-```
-make test
-
-```
+  </li>
+</ul>

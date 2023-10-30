@@ -1,7 +1,7 @@
 <header>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top " data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'index' %}">L O G O</a>
+      <a class="navbar-brand " href="{% url 'index' %}">P L A N T A L I A</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
@@ -29,7 +29,7 @@
             <li class="nav-item dropdown">
               <!-- ACCOUNT -->
               <a class="nav-link dropdown-toggle nav-border" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i></a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu bg-dark ">
                 <li>
                   <a class="nav-link nav-border nav-border-none" href="{% url 'login' %}">Iniciar Sesión</a>
                 </li>

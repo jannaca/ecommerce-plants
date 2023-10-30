@@ -1,8 +1,8 @@
 {% extends 'base/base.html' %}
 {% block content %}
-  <div class="container-fluid px-5">
+  <div class="container-fluid px-5 mm">
     {% if category_description %}
-      <h2 class="title-shop">{{ categories_filter.name }}</h2>
+      <h2 class="title-shop mt-5">{{ categories_filter.name }}</h2>
       <p class="description-shop">{{ category_description }}</p>
     {% else %}
       <h2 class="title-shop">Nuestras plantas</h2>
@@ -12,7 +12,7 @@
   </div>
   <div class="container-fluid px-5">
     <div class="row">
-      <div class="col-2 mt-5">
+      <div class="col-lg-2 mt-5">
         <div class="categories">
           <h4>Categorias</h4>
           <div class="list-group">

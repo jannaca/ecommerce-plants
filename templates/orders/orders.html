@@ -1,15 +1,12 @@
 {% extends 'base/base.html' %}
 {% block content %}
-  <h1>Compra generada con exito</h1>
-  <h1>Detalles de la Orden</h1>
+ <div class="container-fluid px-5 mm">
+  <h2 class="title-shop">Compra generada con exito</h2>
+  <h3 class="title-shop">Detalles de la Orden</h3>
   <p>Usuario: {{ order.user.username }}</p>
   <p>Fecha de Creación: {{ order.created_at }}</p>
   <p>Total: ${{ order.total }}</p>
-  <div>
-    {%for product  in cart.products.all%}
-    {{product.name}}
-    {% endfor %}
-  </div>
-    <a href="{% url 'index' %}">Confirmar</a>
+    <a href="{% url 'index' %}" class="btn-3">Confirmar</a>
+ </div>
 
 {% endblock %}

@@ -1,19 +1,15 @@
- {% extends 'base/base.html' %}
-
+{% extends 'base/base.html' %}
 {% block content %}
-<div class="login-container container">
-  <div class="card">
+  <div class="login-container container mt-5">
+    <div class="card">
       <div class="card-body">
-          <h1 class="text-center mb-5">Iniciar Sesión</h1>
-          
-          <form action={% url 'login' %} method="post" class="form">
-              {% csrf_token %}
-              {{ form }}
-              <input class="btn-submit" type="submit" value="Iniciar Sesión">
-          </form>
-          
+        <h1 class="text-center mb-5">Iniciar Sesión</h1>
+        <form action="{% url 'login' %}" method="post" class="form">
+          {% csrf_token %}
+          {{ form }}
+          <input class="btn-submit" type="submit" value="Iniciar Sesión" />
+        </form>
       </div>
+    </div>
   </div>
-</div>
-
 {% endblock %}

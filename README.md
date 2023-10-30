@@ -83,3 +83,6 @@ pip install -r requirements.txt
 
   </li>
 </ul>
+
+<h1>---Live DEMO ---</h1>
+[Plantalia](http://jannaca.pythonanywhere.com/)

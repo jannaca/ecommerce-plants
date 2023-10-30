@@ -84,5 +84,6 @@ pip install -r requirements.txt
   </li>
 </ul>
 
-<h1>---Live DEMO ---</h1>
+<h2>---Live DEMO ---</h2>
+[Plantalia](http://jannaca.pythonanywhere.com/)
 <a href"http://jannaca.pythonanywhere.com/">Plantalia</a>

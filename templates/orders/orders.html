@@ -1,12 +1,42 @@
 {% extends 'base/base.html' %}
 {% block content %}
- <div class="container-fluid px-5 mm">
-  <h2 class="title-shop">Compra generada con exito</h2>
-  <h3 class="title-shop">Detalles de la Orden</h3>
-  <p>Usuario: {{ order.user.username }}</p>
-  <p>Fecha de Creación: {{ order.created_at }}</p>
-  <p>Total: ${{ order.total }}</p>
-    <a href="{% url 'index' %}" class="btn-3">Confirmar</a>
- </div>
-
+  <div class="container-fluid px-5 mm">
+    <h2 class="title-shop">Compra generada con exito</h2>
+    <h3 class="title-shop">Detalles de la Orden</h3>
+    <p>Usuario: {{ order.user.username }}</p>
+    <p>Fecha de Creación: {{ order.created_at }}</p>
+    <p class="fw-bolder">Total: ${{ order.total }}</p>
+    <div class="col-4">
+      <p>Productos:</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in cart_contents.products %}
+            <tr>
+              <th>
+                {% if product.image %}
+                  <img src="{{ product.image }}" alt="" width="60" height="60" />
+                {% endif %}
+              </th>
+              <th>
+                <a href="{% url 'get_product' id=product.id %}">{{ product.name }}</a>
+              </th>
+              <th class="text-center">{{ product.quantity }}</th>
+              <th>{{ product.price }}</th>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="">
+      <a href="{% url 'shop' %}" class="btn-2">Seguir comprando</a>
+    </div>
+  </div>
 {% endblock %}

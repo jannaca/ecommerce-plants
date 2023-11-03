@@ -5,7 +5,7 @@
     <h3 class="title-shop">Detalles de la Orden</h3>
     <p>Usuario: {{ order.user.username }}</p>
     <p>Fecha de Creación: {{ order.created_at }}</p>
-    <p class="fw-bolder">Total: ${{ order.total }}</p>
+    <p class="fw-bolder">Total: {{ order.total }} $</p>
     <div class="col-4">
       <p>Productos:</p>
       <table class="table">
@@ -29,7 +29,7 @@
                 <a href="{% url 'get_product' id=product.id %}">{{ product.name }}</a>
               </th>
               <th class="text-center">{{ product.quantity }}</th>
-              <th>{{ product.price }}</th>
+              <th>{{ product.price }} $</th>
             </tr>
           {% endfor %}
         </tbody>

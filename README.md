@@ -10,7 +10,6 @@
 
 ```
 python manage.py runserver --settings=settings.local
-
 ```
 
 <h2>Instalación</h2>
@@ -19,7 +18,6 @@ python manage.py runserver --settings=settings.local
 
 ```
 python -m venv env
-
 ```
 <h3>2. Activa el entorno virtual:</h3>
 
@@ -28,19 +26,16 @@ python -m venv env
 source env/bin/activate
 # en Windows:
 env\Scripts\activate
-
-
 ```
 <h3>3. Instala las dependencias del proyecto:</h3>
 
 ```
 pip install -r requirements.txt
-
 ```
 <h2> Configurar base de datos MySQL</h2>
 <ul>
   <li>
-    En la carpeta settings, crea un archvio con estos datos y sustituye:
+    En la carpeta settings, crea un archvio llamado "my.cnf" con estos datos y sustituye:
     
     [client]
      database = <nameDataBase>

@@ -34,11 +34,17 @@ pip install -r requirements.txt
 ```
 <h2> Configurar base de datos MySQL</h2>
 <ul>
+   <li>
+    Crea la base de datos a utilizar:
+
+    create database ecommerce_plants;
+
+  </li>
   <li>
     En la carpeta settings, crea un archvio llamado "my.cnf" con estos datos y sustituye:
     
     [client]
-     database = <nameDataBase>
+     database = ecommerce_plants
      user = <user>
      password = <password>
      default-character-set = utf8

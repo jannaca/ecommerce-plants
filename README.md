@@ -1,11 +1,11 @@
 # ecommerce-plants
 <p>Proyecto de backend desarrollado como parte de un bootcamp.</p>
 
-<h1 align="center"> -----🪴 Plantalia  🪴----- </h1>
+<h1 align="center"> -----🍃 Plantalia 🍃---- </h1>
 
 <h2>Requisitos previos</h2>
-<p>Antes de comenzar, asegurate de tener instalado Makefile en tu sistema.</p>
-<p class="text-center">o</p>
+<p>Antes de comenzar, asegurate de tener instalado Make en tu sistema.</p>
+<p>o</p>
 <p>Usa la ruta larga para los comandos tal como:</p>
 
 ```
